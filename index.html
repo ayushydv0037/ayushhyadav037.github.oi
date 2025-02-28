@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: pink;
+            padding: 20px;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hidden {
+            display: none;
+        }
+        .emoji {
+            font-size: 10vw;
+            color: red;
+            animation: dance 1s infinite alternate;
+        }
+        @keyframes dance {
+            0% { transform: translateY(-10px); }
+            100% { transform: translateY(10px); }
+        }
+        .message-box {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 5vw;
+            font-weight: bold;
+            color: black;
+            background-color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .content-box {
+            background-color: white;
+            padding: 5vw;
+            border: 2px solid black;
+            text-align: left;
+            max-width: 90vw;
+            margin: auto;
+            font-size: 4vw;
+        }
+    </style>
+</head>
+<body>
+    <div id="step1">
+        <div class="emoji">❤</div>
+        <p style="font-size: 5vw; font-weight: bold; color: black;">Press this emoji for something??.</p>
+    </div>
+    <div id="step2" class="hidden">
+        <p>Ankita, I have something for you! Do you want to see this?</p>
+        <div class="message-box" onclick="showNoOption()">No</div>
+        <div class="message-box" onclick="showYesOption()">Yes</div>
+    </div>
+    <div id="step3" class="hidden">
+        <div class="message-box" onclick="showAreYouSure()">Are you sure!! Ankita🥲</div>
+    </div>
+    <div id="step4" class="hidden">
+        <p>Good😁job Ankita!!🫰🏻 </p>
+        <div class="emoji">💌</div>
+        <p style="font-size: 5vw; font-weight: bold; color: black;">Ankita, pls press this emoji!!😁</p>
+    </div>
+    <div id="step5" class="hidden">
+        <div class="content-box">
+            <p>Happy birthday, Ankita! 🎉🎂</p>
+            <p>May your day be as bright as the sun 🌞 And as sweet as the treats you've won 🍰🎁</p>
+            <p>You deserve a celebration that's bold 🎊 With laughter, love, and memories to hold 📚</p>
+            <p>May your year ahead be filled with delight 🌈 And all your dreams take flight ✈</p>
+            <p>Ankita, you're a shining star ⭐ Twinkling bright from near and far 🌠</p>
+            <p>May your birthday wishes all come true 🎁 And your day be filled with joy anew 🌈</p>
+            <p>Here's to another year of adventure and fun 🎉 May your life be filled with love, laughter, and everyone 🤩</p>
+            <p>Happy birthday, dear Ankita! 🎂🎉</p>
+            <p style="text-align: right; font-weight: bold;">~ By Ayush Kumar Yadav🌻</p>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.emoji').addEventListener('click', function() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        });
+        function showNoOption() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.remove('hidden');
+        }
+        function showAreYouSure() {
+            document.getElementById('step3').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+        function showYesOption() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step4').classList.remove('hidden');
+        }
+        document.querySelector('#step4 .emoji').addEventListener('click', function() {
+            document.getElementById('step4').classList.add('hidden');
+            document.getElementById('step5').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
